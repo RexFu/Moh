@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toggle="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_moh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/colormain"
+    >
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerInParent="true"
+                  android:textSize="16sp"
+                  android:textColor="#ffffff"
+        />
+        <TextView android:layout_width="40dp"
+                  android:layout_height="match_parent"
+                  android:text="授权"
+                  android:textColor="#ffffff"
+                  android:gravity="center"
+                  android:layout_marginRight="11dp"
+                  android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+                  android:layout_alignParentEnd="true" android:layout_marginEnd="11dp"
+                  android:id="@+id/textView"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="30dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="12dp"
+                  android:text="选择类型"
+                  android:textColor="@color/colorblack"
+                  android:layout_centerVertical="true"
+                  android:id="@+id/Edit_text"
+        />
+        <TextView
+            android:layout_width="200dp"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/shap_frame"
+                  android:paddingTop="5dp"
+                  android:layout_marginRight="60dp"
+                  android:paddingBottom="5dp"
+                  android:minWidth="200dp"
+                  android:textSize="12sp"
+                  android:layout_alignParentRight="true"
+                  android:paddingLeft="8dp"
+                  android:textColor="@color/colorblack"
+                  android:layout_marginLeft="12dp"
+                  android:id="@+id/tv_chose"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="1dp"
+                    android:layout_height="30dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="12dp"
+                  android:layout_centerVertical="true"
+                  android:text="连接ID"
+                  android:textColor="@color/colorblack"
+        />
+        <EditText android:layout_width="wrap_content"
+                  android:layout_height="200dp"
+                  android:background="@drawable/shap_frame"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:textSize="12sp"
+                  android:inputType="number"
+                  android:maxLength="32"
+                  android:paddingLeft="8dp"
+                  android:layout_marginRight="60dp"
+                  android:layout_alignParentRight="true"
+                  android:textColor="@color/colorblack"
+                  android:hint="请输入您的游戏ID"
+                  android:minWidth="200dp"
+                  android:layout_alignParentTop="true"
+                  android:layout_centerHorizontal="true"
+                  android:id="@+id/editText"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="30dp">
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="12dp"
+                  android:layout_centerVertical="true"
+                  android:text="透视下一家牌"
+                  android:textColor="@color/colorblack"
+        />
+        <com.rex.moh.view.ToggleButton
+            android:id="@+id/bv_btn4"
+            android:layout_width="42dp"
+            android:layout_centerVertical="true"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            toggle:tbOffColor="#ddd"
+        />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="40dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="12dp"
+                  android:layout_centerVertical="true"
+                  android:text="起手暗杆"
+                  android:textColor="@color/colorblack"
+        />
+        <com.rex.moh.view.ToggleButton
+            android:id="@+id/bv_btn1"
+            android:layout_width="42dp"
+            android:layout_centerVertical="true"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            toggle:tbOffColor="#ddd"
+        />
+    </RelativeLayout>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="40dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:layout_marginLeft="12dp"
+                  android:text="快速自摸"
+                  android:textColor="@color/colorblack"
+        />
+        <com.rex.moh.view.ToggleButton
+            android:id="@+id/bv_btn2"
+            android:layout_width="42dp"
+            android:layout_centerVertical="true"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            toggle:tbOffColor="#ddd"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="40dp">
+        <TextView
+            android:id="@+id/tv_ks_cp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="透视三家牌"
+            android:textColor="@color/colorblack"
+        />
+        <com.rex.moh.view.ToggleButton
+            android:id="@+id/bv_btn7"
+            android:layout_width="42dp"
+            android:layout_centerVertical="true"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            toggle:tbOffColor="#ddd"/>
+
+
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="40dp">
+        <TextView
+            android:id="@+id/tv_zn_cp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_centerVertical="true"
+            android:text="防点炮"
+            android:textColor="@color/colorblack"
+        />
+        <com.rex.moh.view.ToggleButton
+            android:id="@+id/bv_btn8"
+            android:layout_centerVertical="true"
+            android:layout_width="42dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="12dp"
+            toggle:tbOffColor="#ddd" android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"
+            android:layout_marginEnd="12dp"/>
+
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="40dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:layout_marginLeft="12dp"
+                  android:text="防杠"
+                  android:textColor="@color/colorblack"
+        />
+        <com.rex.moh.view.ToggleButton
+            android:id="@+id/bv_btn6"
+            android:layout_width="42dp"
+            android:layout_centerVertical="true"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            toggle:tbOffColor="#ddd"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="40dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:layout_marginLeft="12dp"
+                  android:text="防检测防封号"
+                  android:textColor="@color/colorblack"
+        />
+        <com.rex.moh.view.ToggleButton
+            android:id="@+id/bv_btn12"
+            android:layout_width="42dp"
+            android:layout_centerVertical="true"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            toggle:tbOffColor="#ddd"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="30dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="12dp"
+                  android:layout_centerVertical="true"
+                  android:text="选择类型"
+                  android:textColor="@color/colorblack"
+        />
+        <TextView
+            android:id="@+id/tv_xzlx"
+            android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/shap_frame"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:layout_marginRight="12dp"
+                  android:layout_alignParentRight="true"
+                  android:minWidth="200dp"
+                  android:textSize="12sp"
+                  android:paddingLeft="8dp"
+                  android:textColor="@color/colorblack"
+                  android:layout_marginLeft="12dp"
+        />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorbwhrit"
+                    android:layout_marginTop="1dp"
+                    android:layout_height="30dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="12dp"
+                  android:layout_centerVertical="true"
+                  android:layout_marginRight="20dp"
+                  android:text="起手牌型"
+                  android:textColor="@color/colorblack"
+                  android:id="@+id/textView3"/>
+        <TextView
+            android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/shap_frame"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:textSize="12sp"
+                  android:paddingLeft="8dp"
+                  android:minWidth="200dp"
+                  android:textColor="@color/colorblack"
+                  android:layout_alignBaseline="@+id/textView3"
+                  android:layout_alignBottom="@+id/textView3" android:layout_alignParentRight="true"
+                  android:layout_alignParentEnd="true"
+                  android:layout_marginEnd="13dp"
+                  android:id="@+id/tv_qspx"
+                  android:layout_marginRight="13dp"/>
+    </RelativeLayout>
+    <TextView android:layout_width="wrap_content"
+              android:background="@drawable/shap_checked"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:paddingTop="8dp"
+              android:paddingRight="10dp"
+              android:paddingLeft="10dp"
+              android:layout_marginTop="20dp"
+              android:paddingBottom="8dp"
+              android:textColor="@color/colormain"
+              android:id="@+id/tv_start"
+              android:text="启动游戏"
+              android:layout_marginBottom="15dp"
+    />
+</LinearLayout>
+</ScrollView>

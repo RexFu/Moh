@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion COMPILESDK_VERSION as int
+    buildToolsVersion BUILDTOOLS_VERSION
+    defaultConfig {
+        applicationId "com.rex.moh"
+        minSdkVersion MINSDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:design:${COMPILE_TOOLS}"
+    compile 'com.weigan:loopView:0.1.2'
+    compile 'com.google.code.gson:gson:2.7'
+    compile "com.android.support:appcompat-v7:${COMPILE_TOOLS}"
+    compile "com.android.support:support-v4:${COMPILE_TOOLS}"
+
+    testCompile 'junit:junit:4.12'
+}
