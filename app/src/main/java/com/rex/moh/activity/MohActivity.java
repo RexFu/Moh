@@ -244,4 +244,10 @@ public class MohActivity extends AppCompatActivity implements ToggleButton.OnTog
                     ProRes.ClosePlayer();
                 }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ProRes.ClosePlayer();
+        stopMoh();
+    }
 }

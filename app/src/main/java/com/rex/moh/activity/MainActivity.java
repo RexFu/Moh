@@ -82,4 +82,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             startActivity(myIntent);
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ProRes.ClosePlayer();
+    }
 }

@@ -1,6 +1,4 @@
 package com.rex.moh.activity;
-
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -72,6 +70,13 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
         mChose.setText(mMohBean.getAllData().get(mMohBean.Pos).getList().get(0));
         mChoseLexin.setText(mMohBean.getPercentage().get(0));
         mChosePaiXin.setText(mMohBean.getCardType().get(0));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ProRes.ClosePlayer();
+        stopMoh();
     }
 
     private void initTouche() {
@@ -220,5 +225,6 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
             }
         });
     }
+
 
 }
