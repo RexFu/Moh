@@ -18,7 +18,7 @@ import com.rex.moh.view.ToggleButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnToggleChanged,View.OnClickListener{
+public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnToggleChanged,View.OnClickListener {
 
     private ToggleButton mButton1;
     private ToggleButton mButton7;
@@ -37,6 +37,7 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
     private TextView mSQ;
     private TextView mStart;
     private EditText mEditext;
+    private int IsFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,25 +47,27 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
         initTouche();
         initData();
     }
-    Handler handler1=new Handler();
-    Runnable runnable1=new Runnable() {
+
+    Handler handler1 = new Handler();
+    Runnable runnable1 = new Runnable() {
         @Override
         public void run() {
             // TODO Auto-generated method stub
             //要做的事情.
             AlertUtils.isDismiss();
-            AlertUtils.ToastView(Moh2Activity.this,"操作失败：操作码有误...");
+            AlertUtils.ToastView(Moh2Activity.this, "操作失败：操作码有误...");
         }
     };
-    Handler handler=new Handler();
-    Runnable runnable=new Runnable() {
+    Handler handler = new Handler();
+    Runnable runnable = new Runnable() {
         @Override
         public void run() {
             // TODO Auto-generated method stub
-            ProRes.openPlayer(Moh2Activity.this,ProRes.fun[(int) (Math.random() * 27)]);
+            ProRes.openPlayer(Moh2Activity.this, ProRes.fun[(int) (Math.random() * 27)]);
             handler.postDelayed(this, 8000);
         }
     };
+
     private void initData() {
         mTitle.setText(mMohBean.getAllData().get(mMohBean.Pos).getName());
         mChose.setText(mMohBean.getAllData().get(mMohBean.Pos).getList().get(0));
@@ -75,8 +78,7 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ProRes.ClosePlayer();
-        stopMoh();
+
     }
 
     private void initTouche() {
@@ -89,14 +91,14 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
         mChose.setOnClickListener(this);
         mChoseLexin.setOnClickListener(this);
         mChosePaiXin.setOnClickListener(this);
-        mIntent=getIntent();
-        mMohBean= (Mohbean) mIntent.getSerializableExtra("user");
+        mIntent = getIntent();
+        mMohBean = (Mohbean) mIntent.getSerializableExtra("user");
         mStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(mEditext.getText())) {
-                    AlertUtils.ToastView(Moh2Activity.this,"请输入操作码");
-                }else{
+                    AlertUtils.ToastView(Moh2Activity.this, "请输入操作码");
+                } else {
                     Seelp();
                 }
 
@@ -114,26 +116,26 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
      */
 
     private void initView() {
-        mButton1=(ToggleButton) findViewById(R.id.bv_btn1);
-        mButton2=(ToggleButton) findViewById(R.id.bv_btn4);
-        mButton3=(ToggleButton) findViewById(R.id.bv_btn2);
-        mButton4=(ToggleButton) findViewById(R.id.bv_btn7);
-        mButton5=(ToggleButton) findViewById(R.id.bv_btn6);
-        mButton6=(ToggleButton) findViewById(R.id.bv_btn8);
-        mButton7=(ToggleButton) findViewById(R.id.bv_btn12);
-        mStart=(TextView) findViewById(R.id.tv_start);
-        mSQ=(TextView) findViewById(R.id.textView);
-        mEditext=(EditText) findViewById(R.id.editText);
-        mChose=(TextView) findViewById(R.id.tv_chose);
-        mTitle=(TextView) findViewById(R.id.tv_title);
-        mChoseLexin=(TextView) findViewById(R.id.tv_xzlx);
-        mChosePaiXin=(TextView) findViewById(R.id.tv_qspx);
+        mButton1 = (ToggleButton) findViewById(R.id.bv_btn1);
+        mButton2 = (ToggleButton) findViewById(R.id.bv_btn4);
+        mButton3 = (ToggleButton) findViewById(R.id.bv_btn2);
+        mButton4 = (ToggleButton) findViewById(R.id.bv_btn7);
+        mButton5 = (ToggleButton) findViewById(R.id.bv_btn6);
+        mButton6 = (ToggleButton) findViewById(R.id.bv_btn8);
+        mButton7 = (ToggleButton) findViewById(R.id.bv_btn12);
+        mStart = (TextView) findViewById(R.id.tv_start);
+        mSQ = (TextView) findViewById(R.id.textView);
+        mEditext = (EditText) findViewById(R.id.editText);
+        mChose = (TextView) findViewById(R.id.tv_chose);
+        mTitle = (TextView) findViewById(R.id.tv_title);
+        mChoseLexin = (TextView) findViewById(R.id.tv_xzlx);
+        mChosePaiXin = (TextView) findViewById(R.id.tv_qspx);
         mButton2.setOnToggleChanged(new ToggleButton.OnToggleChanged() {
             @Override
             public void onToggle(boolean on) {
                 if (on) {
                     startMoh();
-                }else{
+                } else {
                     stopMoh();
                 }
             }
@@ -141,11 +143,7 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
         mButton4.setOnToggleChanged(new ToggleButton.OnToggleChanged() {
             @Override
             public void onToggle(boolean on) {
-                if (on) {
-                    startMoh();
-                }else{
-                    stopMoh();
-                }
+                ProRes.openPlayer(Moh2Activity.this, ProRes.funUrl);
             }
         });
         mSQ.setOnClickListener(new View.OnClickListener() {
@@ -163,10 +161,16 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
     }
 
     private void startMoh() {
-        ProRes.openPlayer(this,ProRes.funUrl);
-        handler.removeCallbacks(runnable);
-        handler.postDelayed(runnable, 8000);//每两秒执行一次runnable.
+        if (IsFlag == 1 && !TextUtils.isEmpty(mEditext.getText())) {
+            ProRes.openPlayer(this, ProRes.funUrl);
+            handler.removeCallbacks(runnable);
+            handler.postDelayed(runnable, 8000);//每两秒执行一次runnable.
+        } else {
+            mButton2.setToggleOff();
+            AlertUtils.showCleanCache(this, "请输入授权码,点击“启动游戏”");
+        }
     }
+
 
     @Override
     public void onToggle(boolean on) {

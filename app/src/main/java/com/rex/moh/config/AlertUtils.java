@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -110,6 +111,10 @@ public class AlertUtils {
         window.getDecorView().setBackgroundColor(0X00000000);
         window.setAttributes(p);
         window.setContentView(R.layout.dialog_clean_cache);
+        TextView mShow = (TextView) window.findViewById(R.id.tv_show);
+        if(!TextUtils.isEmpty(aCacheSize)&&aCacheSize!=""){
+            mShow.setText(aCacheSize);
+        }
         TextView mCleanCacheOk = (TextView) window.findViewById(R.id.btn_cancel_ok);
         mCleanCacheOk.setOnClickListener(new View.OnClickListener() {
             @Override

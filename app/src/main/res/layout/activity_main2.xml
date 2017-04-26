@@ -40,8 +40,6 @@
     <EditText
         android:layout_width="match_parent"
               android:layout_height="30dp"
-              android:inputType="number"
-        android:maxLength="20"
               android:background="@drawable/shap_frame"
               android:paddingTop="5dp"
               android:paddingBottom="5dp"
