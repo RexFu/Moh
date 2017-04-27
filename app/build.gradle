@@ -26,6 +26,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
     compile "com.android.support:appcompat-v7:${COMPILE_TOOLS}"
     compile "com.android.support:support-v4:${COMPILE_TOOLS}"
-
     testCompile 'junit:junit:4.12'
+    compile project(':td_http')
 }

@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,9 +15,14 @@ import com.rex.moh.config.AlertUtils;
 import com.rex.moh.config.ProRes;
 import com.rex.moh.listener.Callss;
 import com.rex.moh.view.ToggleButton;
+import com.rex.td_http.config.DataState;
+import com.rex.td_http.http.HttpUtils;
+import com.rex.td_http.listener.CallBack;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnToggleChanged,View.OnClickListener {
 
@@ -38,6 +44,7 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
     private TextView mStart;
     private EditText mEditext;
     private int IsFlag;
+    private String mString="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +103,8 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
         mStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(mEditext.getText())) {
+                mString=mEditext.getText().toString();
+                if (TextUtils.isEmpty(mString)) {
                     AlertUtils.ToastView(Moh2Activity.this, "请输入操作码");
                 } else {
                     Seelp();
@@ -108,7 +116,23 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
 
     private void Seelp() {
         AlertUtils.isShowLoad(Moh2Activity.this);
-        handler1.postDelayed(runnable1, 2000);
+        HashMap<String, String> mParm = new HashMap<String, String>();
+        mParm.put("项目名称","测试项目");
+        mParm.put("注册码名称",mString);
+        StringBuilder urlget = new StringBuilder("http://get.baibaoyun.com/api/bcfc5d0db987700a416fa63725f30f5a").append("?").append("项目名称=").append("雀神").append("&注册码名称=").append("9613BA5196F50118C0ED598D433F953B");
+        HttpUtils.get().params(mParm).setUrl(urlget.toString()).taskId(0xf001).build(DataState.NO_CACHE).execute(new CallBack() {
+            @Override
+            public void onSuccess(Object obj, long taskId) {
+                Log.e("flag--","Moh2Activity--onSuccess--119--"+obj.toString());
+
+            }
+
+            @Override
+            public void onFailure(Object obj, long taskId) {
+                Log.e("flag--","Moh2Activity--onFailure--126--"+obj.toString());
+
+            }
+        });
     }
 
     /**

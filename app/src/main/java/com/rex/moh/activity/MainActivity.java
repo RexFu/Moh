@@ -11,6 +11,9 @@ import com.rex.moh.R;
 import com.rex.moh.adapter.MobAdapter;
 import com.rex.moh.bean.Mohbean;
 import com.rex.moh.config.ProRes;
+import com.rex.td_http.http.MvcPointer;
+import com.rex.td_http.http.VolleyProxy;
+import com.rex.td_http.listener.HttpProxy;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ProRes.openPlayer(this,ProRes.funopen);
+        MvcPointer.init(this.getApplicationContext(),true, VolleyProxy.getInstance(this));
         initView();
         initData();
         setTouch();
