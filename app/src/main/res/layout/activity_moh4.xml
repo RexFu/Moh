@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toggle="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_moh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_height="match_parent">
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/colormain"
+        >
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="捕鱼游戏"
+                      android:layout_centerInParent="true"
+                      android:textSize="16sp"
+                      android:textColor="#ffffff"
+                      android:id="@+id/tv_title"
+            />
+            <TextView
+                android:id="@+id/tv_sq"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:text="授权"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="12dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="20dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:text="选择类型"
+                      android:textColor="@color/colorblack"
+                      android:layout_centerVertical="true"
+            />
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shap_frame"
+                android:paddingTop="5dp"
+                android:layout_marginRight="60dp"
+                android:paddingBottom="5dp"
+                android:minWidth="200dp"
+                android:textSize="12sp"
+                android:hint="请输入你要玩的游戏名称"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="8dp"
+                android:textColor="@color/colorblack"
+                android:layout_marginLeft="12dp"
+                android:id="@+id/tv_xzlx"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="授权码"
+                      android:textColor="@color/colorblack"
+            />
+            <EditText android:layout_width="wrap_content"
+                      android:layout_height="200dp"
+                      android:background="@drawable/shap_frame"
+                      android:paddingTop="5dp"
+                      android:paddingBottom="5dp"
+                      android:textSize="12sp"
+                      android:inputType="number"
+                      android:paddingLeft="8dp"
+                      android:layout_marginRight="60dp"
+                      android:layout_alignParentRight="true"
+                      android:textColor="@color/colorblack"
+                      android:hint="请输入您的游戏ID"
+                      android:minWidth="200dp"
+                      android:layout_alignParentTop="true"
+                      android:layout_centerHorizontal="true"
+                      android:id="@+id/editText"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="自动打鲨鱼"
+                      android:textColor="@color/colorblack"
+            />
+            <com.rex.moh.view.ToggleButton
+                android:id="@+id/bv_btn1"
+                android:layout_width="42dp"
+                android:layout_centerVertical="true"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                toggle:tbOffColor="#ddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="一炮击命"
+                      android:textColor="@color/colorblack"
+            />
+            <com.rex.moh.view.ToggleButton
+                android:id="@+id/bv_btn2"
+                android:layout_width="42dp"
+                android:layout_centerVertical="true"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                toggle:tbOffColor="#ddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="无限炸弹"
+                      android:textColor="@color/colorblack"
+            />
+            <com.rex.moh.view.ToggleButton
+                android:id="@+id/bv_btn3"
+                android:layout_width="42dp"
+                android:layout_centerVertical="true"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                toggle:tbOffColor="#ddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="超级炸弹"
+                      android:textColor="@color/colorblack"
+            />
+            <com.rex.moh.view.ToggleButton
+                android:id="@+id/bv_btn4"
+                android:layout_width="42dp"
+                android:layout_centerVertical="true"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                toggle:tbOffColor="#ddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="锁定打鱼"
+                      android:textColor="@color/colorblack"
+            />
+            <com.rex.moh.view.ToggleButton
+                android:id="@+id/bv_btn5"
+                android:layout_width="42dp"
+                android:layout_centerVertical="true"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                toggle:tbOffColor="#ddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="随机打鱼"
+                      android:textColor="@color/colorblack"
+            />
+            <com.rex.moh.view.ToggleButton
+                android:id="@+id/bv_btn6"
+                android:layout_width="42dp"
+                android:layout_centerVertical="true"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                toggle:tbOffColor="#ddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="调节命中率"
+                      android:textColor="@color/colorblack"
+            />
+            <TextView
+                android:id="@+id/tv_b7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="命中率10%"
+                android:layout_marginRight="32dp"
+                android:layout_alignParentRight="true"
+                android:minWidth="200dp"
+                android:gravity="right"
+                android:textSize="12sp"
+                android:paddingLeft="8dp"
+                android:textColor="@color/colorblack"
+                android:layout_marginLeft="12dp"
+            />
+        </RelativeLayout>
+        <TextView android:layout_width="wrap_content"
+                                    android:background="@drawable/shap_checked"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:paddingTop="8dp"
+                                    android:paddingRight="10dp"
+                                    android:paddingLeft="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:paddingBottom="8dp"
+                                    android:id="@+id/tv_sart"
+                                    android:textColor="@color/colormain"
+                                    android:layout_marginBottom="15dp"
+                                    android:text="启动游戏"
+    />
+    </LinearLayout>
+    </ScrollView>

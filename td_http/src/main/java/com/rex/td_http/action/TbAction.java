@@ -21,7 +21,7 @@ import java.util.Set;
  * E-mail:WWF1116@163.com
  * 数据操作的父类，集中了数据网络请求，数据缓存等操作
  * 使用方式，例如child继承该类，则
- * new child(listener).params(pas).taskid(id).execute(code);
+ * new child(listener).mParams(pas).taskid(id).execute(code);
  * 注意，使用时，子类应根据数据情况重写父类的一些方法
  * 比如固定参数fixedParams()的方法，特殊情况处理网络返回的数据handleDataFromNet
  * 等
@@ -36,7 +36,7 @@ public abstract class  TbAction extends TaBuild{
     private String url;//你懂得
     protected DataState mActionCode;//数据操作码
     protected int mReqMethod;//请求网络的方式
-    protected Map<String, String> params;//请求网络的参数
+    protected Map<String, String> params=new HashMap<>();//请求网络的参数
     private String key;
     protected static Map<String, String> mHeader;
     /**
@@ -70,6 +70,7 @@ public abstract class  TbAction extends TaBuild{
             url = getUrl();
             mReqMethod = getHttpMethod();
             params=getParms();
+            Log.e("flag--","TbAction--build--73--"+params.size());
             mActionCode = DataState.NO_CACHE;
         } else {
             try {
@@ -81,7 +82,7 @@ public abstract class  TbAction extends TaBuild{
         mActionCode = actionCode;
         checkUrlAndId();
         checkActionCode();
-        getKey();
+         getKey();
         if (!MvcUtils.isNetAvailable(mContext)) {
             whenNoNet();
             return this;
@@ -98,7 +99,6 @@ public abstract class  TbAction extends TaBuild{
     }
 
     private void getKey() {
-        params = getParams();
         String buffer = getAppearUrl(params);
         try {
             key = MvcUtils.MD5encrypt(buffer.toString(), "utf-8");
@@ -125,13 +125,6 @@ public abstract class  TbAction extends TaBuild{
             }
         }
     }
-    private Map<String, String> getParams() {
-        if (params != null) {
-            return params;
-        }
-        Map<String, String> temp = fixedParams();
-        return temp;
-    }
 
     //被项目action基类实现
     protected Map<String, String> getHeader() {
@@ -141,7 +134,7 @@ public abstract class  TbAction extends TaBuild{
         return mHeader;
     }
 
-    //override by children when params are fix ;
+    //override by children when mParams are fix ;
     protected Map<String, String> fixedParams() {
         return new HashMap<>();
     }
@@ -184,18 +177,18 @@ public abstract class  TbAction extends TaBuild{
                 url = getAppearUrl(params);
             }
             Log.e("flag--","TbAction--byHttp--187--"+url);
-            MvcPointer.getHttpProxy().getData(url, callBack, getParams(), getHeader(), taskId);
+            MvcPointer.getHttpProxy().getData(url, callBack, getParms(), getHeader(), taskId);
         } else if(mReqMethod == Method_POST){
 
-            MvcPointer.getHttpProxy().postData(url, callBack, getParams(), getHeader(), taskId);
+            MvcPointer.getHttpProxy().postData(url, callBack, getParms(), getHeader(), taskId);
         }
         //测试用，打印输出header内容,url,和taskid，参数内容
         logv("taskid--"+":"+taskId);
         logv("url--"+":"+url);
-        Map<String, String> tempParams = getParams();
+        Map<String, String> tempParams = getParms();
         for (Map.Entry entry : tempParams.entrySet()) {
             Object key = entry.getKey( );
-            logv("params--"+key+":"+entry.getValue());
+            logv("mParams--"+key+":"+entry.getValue());
         }
         Map<String,String> tempHeader = getHeader();
         for (Map.Entry entry : tempHeader.entrySet()) {
@@ -271,18 +264,15 @@ public abstract class  TbAction extends TaBuild{
             } else {
                 if (mActionCode == DataState.NET_FIRST && isCacheValid(aTaskId)) {
                 } else {
-                    listener.onFailure(Constant.NO_TARGET_DATA, aTaskId);
+                    listener.onFailure(result, aTaskId);
                 }
             }
         }
 
         @Override
         public void onFailure(Object obj, long taskId) {
-            if (Constant.WRONG_SERVER.equals(obj)) {
-                listener.onFailure(Constant.WRONG_SERVER, taskId);
-            } else {
-                listener.onFailure(Constant.UNKNOWN_ERROR, taskId);
-            }
+            listener.onFailure(obj.toString(), taskId);
+
         }
     };
 

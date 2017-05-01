@@ -13,7 +13,7 @@ import java.util.Map;
 
 public abstract class TaBuild <T extends TaBuild> {
     protected String mUrl;
-    protected Map<String, String> params;
+    protected Map<String, String> mParams;
     protected CallBack listener;
     protected int taskId;
 
@@ -24,17 +24,17 @@ public abstract class TaBuild <T extends TaBuild> {
     }
     /*给get请求设置参数 */
     public T params(Map<String, String> aParams) {
-        this.params = aParams;
+        this.mParams = aParams;
         return (T) this;
     }
     /*给get请求设置参数 */
     public T addParams(String key, String val)
     {
-        if (this.params == null)
+        if (this.mParams == null)
         {
-            params = new HashMap<>();
+            mParams = new HashMap<>();
         }
-        params.put(key, val);
+        mParams.put(key, val);
         return (T) this;
     }
     /*给请求设置任务id */

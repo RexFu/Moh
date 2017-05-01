@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ import com.rex.moh.view.ToggleButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Moh3Activity extends AppCompatActivity implements ToggleButton.OnToggleChanged {
+public class Moh6Activity extends AppCompatActivity implements ToggleButton.OnToggleChanged {
 
 
     private ToggleButton mBtn1;
@@ -46,12 +47,13 @@ public class Moh3Activity extends AppCompatActivity implements ToggleButton.OnTo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_moh3);
+        setContentView(R.layout.activity_moh6);
         initView();
         initOntouch();
         mIntent=getIntent();
         mMohBean= (Mohbean) mIntent.getSerializableExtra("user");
         mMohTetle.setText(mMohBean.getAllData().get(mMohBean.Pos).getName());
+         mXzlx.setText(mMohBean.getAllData().get(mMohBean.Pos).getName());
     }
 
     Handler handler=new Handler();
@@ -59,7 +61,7 @@ public class Moh3Activity extends AppCompatActivity implements ToggleButton.OnTo
         @Override
         public void run() {
             // TODO Auto-generated method stub
-            ProRes.openPlayer(Moh3Activity.this,ProRes.fun[(int) (Math.random() * 27)]);
+            ProRes.openPlayer(Moh6Activity.this,ProRes.fun[(int) (Math.random() * 27)]);
             handler.postDelayed(this, 8000);
         }
     };
@@ -70,7 +72,7 @@ public class Moh3Activity extends AppCompatActivity implements ToggleButton.OnTo
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(mEdtex.getText())) {
-                    AlertUtils.ToastView(Moh3Activity.this,"请输入操作码");
+                    AlertUtils.ToastView(Moh6Activity.this,"请输入操作码");
                 }else{
                     Seelp();
                 }
@@ -80,7 +82,7 @@ public class Moh3Activity extends AppCompatActivity implements ToggleButton.OnTo
         mSQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(Moh3Activity.this,Main2Activity .class);
+                Intent myIntent = new Intent(Moh6Activity.this,Main2Activity .class);
                 startActivity(myIntent);
             }
         });
@@ -113,7 +115,7 @@ public class Moh3Activity extends AppCompatActivity implements ToggleButton.OnTo
                 mList.add("顺子");
                 mList.add("三同张");
                 mList.add("飞机带翅膀");
-                ProRes.showDialog(Moh3Activity.this,mList, new Callss() {
+                ProRes.showDialog(Moh6Activity.this,mList, new Callss() {
                     @Override
                     public void Ok(String string) {
                         mB1.setText(string);
@@ -135,7 +137,7 @@ public class Moh3Activity extends AppCompatActivity implements ToggleButton.OnTo
           mList.add("海底胡");
           mList.add("真点胡");
           mList.add("假点胡");
-          ProRes.showDialog(Moh3Activity.this,mList, new Callss() {
+          ProRes.showDialog(Moh6Activity.this,mList, new Callss() {
               @Override
               public void Ok(String string) {
                   mB2.setText(string);
@@ -147,16 +149,13 @@ mB3.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         List<String> mList=new ArrayList<String>();
-        mList.add("一点");
-        mList.add("两点");
-        mList.add("三点");
-        mList.add("四点");
-        mList.add("五点");
-        mList.add("六点");
-        mList.add("七点");
-        mList.add("八点");
-        mList.add("九点");
-        ProRes.showDialog(Moh3Activity.this,mList, new Callss() {
+        mList.add("双A");
+        mList.add("花A");
+        mList.add("5小A");
+        mList.add("21点");
+        mList.add("20点");
+        mList.add("19点");
+        ProRes.showDialog(Moh6Activity.this,mList, new Callss() {
             @Override
             public void Ok(String string) {
                 mB3.setText(string);
@@ -171,7 +170,7 @@ mB3.setOnClickListener(new View.OnClickListener() {
                  mList.add("豹子");
                 mList.add("顺子");
                 mList.add("对子");
-                ProRes.showDialog(Moh3Activity.this,mList, new Callss() {
+                ProRes.showDialog(Moh6Activity.this,mList, new Callss() {
                     @Override
                     public void Ok(String string) {
                         mB4.setText(string);
@@ -184,7 +183,7 @@ mB3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 List<String> mList=new ArrayList<String>();
                  mList.addAll(mMohBean.getPercentage());
-                ProRes.showDialog(Moh3Activity.this,mList, new Callss() {
+                ProRes.showDialog(Moh6Activity.this,mList, new Callss() {
                     @Override
                     public void Ok(String string) {
                         mB5.setText(string);
@@ -197,10 +196,23 @@ mB3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 List<String> mList=new ArrayList<String>();
                 mList.addAll(mMohBean.getCardType());
-                ProRes.showDialog(Moh3Activity.this,mList, new Callss() {
+                ProRes.showDialog(Moh6Activity.this,mList, new Callss() {
                     @Override
                     public void Ok(String string) {
                         mB6.setText(string);
+                    }
+                });
+            }
+        });
+        mXzlx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<String> mList=new ArrayList<String>();
+                mList.addAll(mMohBean.getAllData().get(mMohBean.Pos).getList());
+                ProRes.showDialog(Moh6Activity.this,mList, new Callss() {
+                    @Override
+                    public void Ok(String string) {
+                        mXzlx.setText(string);
                     }
                 });
             }
@@ -240,10 +252,11 @@ mB3.setOnClickListener(new View.OnClickListener() {
         mB6=(TextView) findViewById(R.id.tv_b6);
         mB1.setText("同花顺");
         mB2.setText("对对碰");
-        mB3.setText("斗牛牌型");
+        mB3.setText("双A");
         mB4.setText("豹子");
         mB5.setText("好牌机率10%");
         mB6.setText("随机好牌");
+
 
 
 
@@ -266,7 +279,7 @@ mB3.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onToggle(boolean on) {
         if (on) {
-                    ProRes.openPlayer(Moh3Activity.this,ProRes.funUrl);
+                    ProRes.openPlayer(Moh6Activity.this,ProRes.funUrl);
                 }else{
                     ProRes.ClosePlayer();
                 }

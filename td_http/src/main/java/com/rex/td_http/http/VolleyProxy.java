@@ -65,7 +65,7 @@ public class VolleyProxy implements HttpProxy {
             @Override
             public void onResponse(final String response) {
                 if (!isGoodJson(response)) {
-                    callBack.onFailure(Constant.WRONG_SERVER, taskId);
+                    callBack.onFailure(response.toString(), taskId);
                     return;
                 }
                 callBack.onSuccess(response, taskId);

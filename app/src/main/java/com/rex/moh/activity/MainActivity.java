@@ -2,6 +2,7 @@ package com.rex.moh.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -11,6 +12,7 @@ import com.rex.moh.R;
 import com.rex.moh.adapter.MobAdapter;
 import com.rex.moh.bean.Mohbean;
 import com.rex.moh.config.ProRes;
+import com.rex.moh.config.TdSpUtils;
 import com.rex.td_http.http.MvcPointer;
 import com.rex.td_http.http.VolleyProxy;
 import com.rex.td_http.listener.HttpProxy;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         initView();
         initData();
         setTouch();
+
     }
 
     /**
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Log.e("flag--","MainActivity--onItemClick--71--"+position);
         if(position==1||position==7||position==4||position==5||position==8||position==12||position==22||position==25){
             Intent myIntent = new Intent(MainActivity.this,MohActivity.class);
             Bundle bundle = new Bundle();
@@ -78,6 +82,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             startActivity(myIntent);
         }else if(position==39){
             Intent myIntent = new Intent(MainActivity.this, Moh3Activity.class);
+            Bundle bundle = new Bundle();
+            Mohbean mohbean=ProRes.NameStr(MainActivity.this);
+            mohbean.Pos=position;
+            bundle.putSerializable("user",mohbean );
+            myIntent.putExtras(bundle);
+            startActivity(myIntent);
+        }else if(position==30){
+            Intent myIntent = new Intent(MainActivity.this, Moh4Activity.class);
+            Bundle bundle = new Bundle();
+            Mohbean mohbean=ProRes.NameStr(MainActivity.this);
+            mohbean.Pos=position;
+            bundle.putSerializable("user",mohbean );
+            myIntent.putExtras(bundle);
+            startActivity(myIntent);
+        }else if(position==36){
+            Intent myIntent = new Intent(MainActivity.this, Moh6Activity.class);
             Bundle bundle = new Bundle();
             Mohbean mohbean=ProRes.NameStr(MainActivity.this);
             mohbean.Pos=position;

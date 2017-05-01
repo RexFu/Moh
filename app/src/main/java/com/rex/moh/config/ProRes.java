@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
+import android.telephony.TelephonyManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -152,7 +153,17 @@ public class ProRes {
         dialog.show();
     }
 
+    /**
+     * 获得设备的唯一的id
+     * @param context
+     * @return
+     */
+    public static String getDeviceId(Context context) {
+        TelephonyManager tm=((TelephonyManager) context.getSystemService( Context.TELEPHONY_SERVICE ));
+        String DEVICE_ID = tm.getDeviceId();
+        return DEVICE_ID;
 
+    }
 
 
 }

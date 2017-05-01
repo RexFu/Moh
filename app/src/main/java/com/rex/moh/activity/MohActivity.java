@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.rex.moh.R;
 import com.rex.moh.bean.Mohbean;
 import com.rex.moh.config.AlertUtils;
+import com.rex.moh.config.Call;
+import com.rex.moh.config.NetWork;
 import com.rex.moh.config.ProRes;
 import com.rex.moh.listener.Callss;
 import com.rex.moh.view.ToggleButton;
@@ -61,17 +63,6 @@ public class MohActivity extends AppCompatActivity implements ToggleButton.OnTog
         mQspx.setText(mMohBean.getCardType().get(0));
         mMohTetle.setText(mMohBean.getAllData().get(mMohBean.Pos).getName());
     }
-    Handler handler1=new Handler();
-    Runnable runnable1=new Runnable() {
-        @Override
-        public void run() {
-            // TODO Auto-generated method stub
-            //要做的事情.
-            AlertUtils.isDismiss();
-            AlertUtils.ToastView(MohActivity.this,"操作失败：操作码有误...");
-
-        }
-    };
     Handler handler=new Handler();
     Runnable runnable=new Runnable() {
         @Override
@@ -198,8 +189,17 @@ public class MohActivity extends AppCompatActivity implements ToggleButton.OnTog
     }
 
     private void Seelp() {
-        AlertUtils.isShowLoad(MohActivity.this);
-        handler1.postDelayed(runnable1, 2000);
+        NetWork.getData(this, mEdtex.getText().toString(), new Call() {
+            @Override
+            public void OnOk() {
+                IsFlag=1;
+            }
+
+            @Override
+            public void OnNo() {
+                IsFlag=0;
+            }
+        });
 
 
     }

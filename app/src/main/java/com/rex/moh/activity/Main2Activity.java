@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.rex.moh.R;
 import com.rex.moh.config.AlertUtils;
+import com.rex.moh.config.Call;
+import com.rex.moh.config.NetWork;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -73,8 +75,17 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     private void Sleep() {
-        AlertUtils.isShowLoad(Main2Activity.this);
-        handler.postDelayed(runnable, 2000);
+        NetWork.getData(this, mEditext.getText().toString(), new Call() {
+            @Override
+            public void OnOk() {
+
+            }
+
+            @Override
+            public void OnNo() {
+
+            }
+        });
 
     }
 

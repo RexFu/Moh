@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.rex.moh.R;
 import com.rex.moh.bean.Mohbean;
 import com.rex.moh.config.AlertUtils;
+import com.rex.moh.config.Call;
+import com.rex.moh.config.NetWork;
 import com.rex.moh.config.ProRes;
 import com.rex.moh.listener.Callss;
 import com.rex.moh.view.ToggleButton;
@@ -54,17 +56,6 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
         initTouche();
         initData();
     }
-
-    Handler handler1 = new Handler();
-    Runnable runnable1 = new Runnable() {
-        @Override
-        public void run() {
-            // TODO Auto-generated method stub
-            //要做的事情.
-            AlertUtils.isDismiss();
-            AlertUtils.ToastView(Moh2Activity.this, "操作失败：操作码有误...");
-        }
-    };
     Handler handler = new Handler();
     Runnable runnable = new Runnable() {
         @Override
@@ -115,22 +106,15 @@ public class Moh2Activity extends AppCompatActivity implements ToggleButton.OnTo
     }
 
     private void Seelp() {
-        AlertUtils.isShowLoad(Moh2Activity.this);
-        HashMap<String, String> mParm = new HashMap<String, String>();
-        mParm.put("项目名称","测试项目");
-        mParm.put("注册码名称",mString);
-        StringBuilder urlget = new StringBuilder("http://get.baibaoyun.com/api/bcfc5d0db987700a416fa63725f30f5a").append("?").append("项目名称=").append("雀神").append("&注册码名称=").append("9613BA5196F50118C0ED598D433F953B");
-        HttpUtils.get().params(mParm).setUrl(urlget.toString()).taskId(0xf001).build(DataState.NO_CACHE).execute(new CallBack() {
+        NetWork.getData(this, mString, new Call() {
             @Override
-            public void onSuccess(Object obj, long taskId) {
-                Log.e("flag--","Moh2Activity--onSuccess--119--"+obj.toString());
-
+            public void OnOk() {
+                IsFlag=1;
             }
 
             @Override
-            public void onFailure(Object obj, long taskId) {
-                Log.e("flag--","Moh2Activity--onFailure--126--"+obj.toString());
-
+            public void OnNo() {
+                IsFlag=0;
             }
         });
     }

@@ -1,7 +1,5 @@
 package com.rex.td_http.action;
 import android.util.Log;
-
-
 import java.util.Map;
 /**
  * Created by Rex.wang on 2017/4/8
@@ -20,7 +18,7 @@ public class GetAction extends BaseAction {
     }
     @Override
     protected Map<String, String> getParms() {
-        return params;
+        return mParams;
     }
     @Override
     protected boolean getTargetDataFromJson(String aResult, long aTaskId) {
