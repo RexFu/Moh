@@ -21,7 +21,7 @@ public class NetWork {
         mParm.put("项目名称","测试项目");
         mParm.put("flag","注册码登录");
         mParm.put("机器码",ProRes.getDeviceId(mContext));
-        mParm.put("注册码","9613BA5196F50118C0ED598D433F953B");
+        mParm.put("注册码",mStr);
         HttpUtils.get().params(mParm).setUrl("http://get.baibaoyun.com/api/bcfc5d0db987700a416fa63725f30f5a").taskId(0xf001).build(DataState.NO_CACHE).execute(new CallBack() {
             @Override
             public void onSuccess(Object obj, long taskId) {
