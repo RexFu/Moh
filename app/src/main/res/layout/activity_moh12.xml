@@ -15,7 +15,7 @@
         >
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:text="十三水游戏"
+                      android:text="斗牛游戏"
                       android:layout_centerInParent="true"
                       android:textSize="16sp"
                       android:textColor="#ffffff"
@@ -114,33 +114,9 @@
                 android:layout_toRightOf="@+id/tv_ks_cp1"
                 android:layout_marginLeft="18dp"
                 android:layout_toEndOf="@+id/tv_ks_cp1"/>
-            <com.rex.moh.view.ToggleButton
-                android:id="@+id/bv_btn2"
-                android:layout_width="42dp"
-                android:layout_centerVertical="true"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="12dp"
-                toggle:tbOffColor="#ddd"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="防透视"
-                android:textColor="@color/colorblack"
-                android:layout_alignTop="@+id/bv_btn1"
-                android:layout_toLeftOf="@+id/bv_btn2"
-                android:layout_toStartOf="@+id/bv_btn2"
-                android:layout_marginRight="12dp"
-                android:id="@+id/textView1"/>
+
 
         </RelativeLayout>
-        <TextView android:layout_width="match_parent"
-              android:text="牌规设置"
-                  android:textColor="#f00"
-                  android:layout_marginTop="12dp"
-                  android:layout_marginLeft="12dp"
-
-                  android:layout_height="wrap_content"/>
         <RelativeLayout android:layout_width="match_parent"
                         android:gravity="center_vertical"
                         android:background="@color/colorbwhrit"
@@ -152,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="12dp"
-                android:text="至尊青龙"
+                android:text="庄家模式"
                 android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -176,7 +152,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="一条龙"
+                android:text="闲家模式"
                 android:textColor="@color/colorblack"
                 android:layout_alignTop="@+id/bv_btn3"
                 android:layout_toLeftOf="@+id/bv_btn4"
@@ -211,7 +187,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="三同花"
+                android:text="5花牛"
                 android:textColor="@color/colorblack"
                 android:layout_alignTop="@+id/bv_btn6"
                 android:layout_toLeftOf="@+id/bv_btn6"
@@ -223,7 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11dp"
-                android:text="十二皇族"
+                android:text="5小牛"
                 android:textColor="@color/colorblack"
                 android:layout_centerVertical="true" android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" android:layout_marginStart="11dp"/>
@@ -240,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="12dp"
-                android:text="三分天下"
+                android:text="满牛"
                 android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -264,13 +240,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="全大"
+                android:text="牛牛"
                 android:textColor="@color/colorblack"
-                android:layout_alignTop="@+id/bv_btn8"
-                android:layout_toLeftOf="@+id/bv_btn8"
-                android:layout_toStartOf="@+id/bv_btn8"
                 android:layout_marginRight="12dp"
-                android:id="@+id/textView5"/>
+                android:id="@+id/textView5" android:layout_alignTop="@+id/bv_btn8"
+                android:layout_toLeftOf="@+id/bv_btn8" android:layout_toStartOf="@+id/bv_btn8"
+                android:layout_marginEnd="12dp"/>
 
         </RelativeLayout>
         <RelativeLayout android:layout_width="match_parent"
@@ -284,7 +259,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="12dp"
-                android:text="全小"
+                android:text="牛9"
                 android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -308,7 +283,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="凑一色"
+                android:text="牛8"
                 android:textColor="@color/colorblack"
                 android:layout_alignTop="@+id/bv_btn10"
                 android:layout_toLeftOf="@+id/bv_btn10"
@@ -328,7 +303,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="12dp"
-                android:text="双怪冲三"
+                android:text="牛7"
                 android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -352,7 +327,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="四套三"
+                android:text="牛6"
                 android:textColor="@color/colorblack"
                 android:layout_alignTop="@+id/bv_btn12"
                 android:layout_toLeftOf="@+id/bv_btn12"
@@ -372,7 +347,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="12dp"
-                android:text="五对三条"
+                android:text="牛5"
                 android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -396,7 +371,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="六对半"
+                android:text="防透视"
                 android:textColor="@color/colorblack"
                 android:layout_alignTop="@+id/bv_btn14"
                 android:layout_toLeftOf="@+id/bv_btn14"

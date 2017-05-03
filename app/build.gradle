@@ -28,4 +28,5 @@ dependencies {
     compile "com.android.support:support-v4:${COMPILE_TOOLS}"
     testCompile 'junit:junit:4.12'
     compile project(':td_http')
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }
