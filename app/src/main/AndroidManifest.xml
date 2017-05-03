@@ -42,9 +42,12 @@
         <activity android:name=".activity.Moh3Activity"/>
         <activity android:name=".activity.Moh4Activity">
         </activity>
-        <activity android:name=".activity.Main5Activity">
+        <activity android:name=".activity.Moh5Activity">
         </activity>
         <activity android:name=".activity.Moh6Activity"/>
+        <activity android:name=".activity.Moh7Activity"/>
+        <activity android:name=".activity.Moh9Activity">
+        </activity>
     </application>
 
 </manifest>

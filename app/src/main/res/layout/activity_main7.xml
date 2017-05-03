@@ -16,7 +16,7 @@
         >
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:text="炸金花游戏"
+                      android:text="斗地主游戏"
                       android:layout_centerInParent="true"
                       android:textSize="16sp"
                       android:textColor="#ffffff"
@@ -102,7 +102,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginLeft="12dp"
                       android:layout_centerVertical="true"
-                      android:text="透视"
+                      android:text="透视地主"
                       android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -124,7 +124,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginLeft="12dp"
                       android:layout_centerVertical="true"
-                      android:text="顺金"
+                      android:text="透视农民"
                       android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -146,7 +146,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginLeft="12dp"
                       android:layout_centerVertical="true"
-                      android:text="金花"
+                      android:text="强制抢地主"
                       android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -168,7 +168,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginLeft="12dp"
                       android:layout_centerVertical="true"
-                      android:text="三同"
+                      android:text="地主模式"
                       android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -190,7 +190,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginLeft="12dp"
                       android:layout_centerVertical="true"
-                      android:text="顺子"
+                      android:text="防透视"
                       android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -212,7 +212,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginLeft="12dp"
                       android:layout_centerVertical="true"
-                      android:text="牌值带A"
+                      android:text="起手王炸"
                       android:textColor="@color/colorblack"
             />
             <com.rex.moh.view.ToggleButton
@@ -225,11 +225,79 @@
                 toggle:tbOffColor="#ddd"
             />
         </RelativeLayout>
-        <TextView android:layout_width="match_parent"
-                  android:layout_marginTop="20dp"
-    android:layout_marginLeft="12dp"
-                  android:text="注：打开以上功能，系统会随机匹配，可多开！"
-                  android:layout_height="42dp"/>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="起手飞机"
+                      android:textColor="@color/colorblack"
+            />
+            <com.rex.moh.view.ToggleButton
+                android:id="@+id/bv_btn7"
+                android:layout_width="42dp"
+                android:layout_centerVertical="true"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                toggle:tbOffColor="#ddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="起手连对"
+                      android:textColor="@color/colorblack"
+            />
+            <com.rex.moh.view.ToggleButton
+                android:id="@+id/bv_btn8"
+                android:layout_width="42dp"
+                android:layout_centerVertical="true"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                toggle:tbOffColor="#ddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorbwhrit"
+                        android:layout_marginTop="12dp"
+                        android:layout_height="30dp">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="12dp"
+                      android:layout_centerVertical="true"
+                      android:text="牌型选择"
+                      android:textColor="@color/colorblack"
+            />
+            <TextView
+                android:id="@+id/tv_b9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="随机好牌"
+                android:layout_marginRight="32dp"
+                android:layout_alignParentRight="true"
+                android:minWidth="200dp"
+                android:gravity="right"
+                android:textSize="12sp"
+                android:paddingLeft="8dp"
+                android:textColor="@color/colorblack"
+                android:layout_marginLeft="12dp"
+            />
+        </RelativeLayout>
         <TextView android:layout_width="wrap_content"
                   android:background="@drawable/shap_checked"
                   android:layout_height="wrap_content"

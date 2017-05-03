@@ -104,7 +104,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             bundle.putSerializable("user",mohbean );
             myIntent.putExtras(bundle);
             startActivity(myIntent);
-        }else {
+        }else if (position==34){
+            Intent myIntent = new Intent(MainActivity.this, Moh5Activity.class);
+            Bundle bundle = new Bundle();
+            Mohbean mohbean=ProRes.NameStr(MainActivity.this);
+            mohbean.Pos=position;
+            bundle.putSerializable("user",mohbean );
+            myIntent.putExtras(bundle);
+            startActivity(myIntent);
+
+        }else if(position==33){
+            Intent myIntent = new Intent(MainActivity.this, Moh7Activity.class);
+            Bundle bundle = new Bundle();
+            Mohbean mohbean=ProRes.NameStr(MainActivity.this);
+            mohbean.Pos=position;
+            bundle.putSerializable("user",mohbean );
+            myIntent.putExtras(bundle);
+            startActivity(myIntent);
+        }else  {
             Intent myIntent = new Intent(MainActivity.this, Moh2Activity.class);
             Bundle bundle = new Bundle();
             Mohbean mohbean=ProRes.NameStr(MainActivity.this);
